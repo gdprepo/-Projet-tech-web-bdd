@@ -11,10 +11,10 @@
       "lastname" => "Depaire",
       "picture_url" => "https://cdn2.iconfinder.com/data/icons/identificon/96/user-male-2-512.png",
       "experience" => [
-        ["titre" => "Titre 1", "debut" => 2009, "fin" => 2011, "exp" => "Resumé : diejiejdeifjiejfijiji "],
-        ["titre" => "Titre 2", "debut" => 2012, "fin" => 2015, "exp" => "Resumé : diejiejdeifjiejfijiji "],
-        ["titre" => "Titre 3", "debut" => 2016, "fin" => 2017, "exp" => "Resumé : diejiejdeifjiejfijiji "],
-        ["titre" => "Titre 4", "debut" => 2018, "fin" => 2019, "exp" => "Resumé : diejiejdeifjiejfijiji "],
+        ["titre" => "Titre 1", "debut" => 2009, "fin" => 2011, "exp" => "Resumé : diejiejdeifjiejfijiji ", "organisme" => "Entreprise 1", "details" => "Detail de l'expérience...."],
+        ["titre" => "Titre 2", "debut" => 2012, "fin" => 2015, "exp" => "Resumé : diejiejdeifjiejfijiji ", "organisme" => "Entreprise 2", "details" => "Detail de l'expérience...."],
+        ["titre" => "Titre 3", "debut" => 2016, "fin" => 2017, "exp" => "Resumé : diejiejdeifjiejfijiji ", "organisme" => "Entreprise 3", "details" => "Detail de l'expérience...."],
+        ["titre" => "Titre 4", "debut" => 2018, "fin" => 2019, "exp" => "Resumé : diejiejdeifjiejfijiji ", "organisme" => "Entreprise 4", "details" => "Detail de l'expérience...."],
       ],
       "skills" => [
         ["name" => "Compétence 1", "level" => 28],
@@ -23,10 +23,10 @@
         ["name" => "Compétence 4", "level" => 148],
       ],
       "parcours" => [
-        ["debut" => 2008, "fin" => 2009, "text" => "parcour texte 1"],
-        ["debut" => 2009, "fin" => 2010, "text" => "parcour texte 2"],
-        ["debut" => 2010, "fin" => 2011, "text" => "parcour texte 3"],
-        ["debut" => 2011, "fin" => 2012, "text" => "parcour texte 4"],
+        ["diplome" => "Diplome 1", "debut" => 2008, "fin" => 2009, "ecole" => "Ecole 1"],
+        ["diplome" => "Diplome 2", "debut" => 2009, "fin" => 2010, "ecole" => "Ecole 2"],
+        ["diplome" => "Diplome 3", "debut" => 2010, "fin" => 2011, "ecole" => "Ecole 3"],
+        ["diplome" => "Diplome 4", "debut" => 2011, "fin" => 2012, "ecole" => "Ecole 4"],
       ],
       "rubrique" => [
         ["activite" => "Activité 1", "text" => "détails texte 1"],
@@ -51,15 +51,29 @@
           <img src="<?php echo $data["picture_url"] ?>"><img>
         </div>
         <div>
-          <h3>Experiences</h3>
+          <h3>Experiences Profesionnelles</h3>
           <ul>
             <?php foreach ($data["experience"] as $exp): ?>
             <li> 
-              <p><?php echo $exp["titre"]; ?></p>
               <p><?php echo $exp["debut"]; ?> -
                 <?php echo $exp["fin"]; ?><br>
-                <?php echo $exp["exp"]; ?>
+                <?php echo $exp["titre"]; ?>
               </p><br>
+              <p><?php echo $exp["exp"]; ?></p>
+              <p><?php echo $exp["organisme"]; ?></p>
+              <p><?php echo $exp["details"]; ?></p>
+            </li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+        <div>
+          <h3>Parcours Scolaire</h3>
+          <ul>
+            <?php foreach ($data["parcours"] as $parcour): ?>
+            <li> 
+              <h4><?php echo $parcour["diplome"]; ?></h4>
+              <p><?php echo $parcour["ecole"]; ?></p>
+              <p><?php echo $parcour["debut"]; ?> - <?php echo $parcour["fin"]; ?></p>
             </li>
             <?php endforeach; ?>
           </ul>

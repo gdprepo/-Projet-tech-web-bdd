@@ -7,39 +7,35 @@
   <body>
     <?php 
     $data = [
-      "firstname" => "Gabin",
-      "lastname" => "Depaire",
-      "picture_url" => "https://static.wamiz.fr/images/news/facebook/article/age-adulte-acc-fb-5915c5fca3f43.jpg",
-      "skills" => [
-        ["name" => "Compétence 1", "level" => 28],
-        ["name" => "Compétence 2", "level" => 72],
-        ["name" => "Compétence 3", "level" => 148]
-      ]
+      "name" => "Nom :",
+      "mail" => "E-mail :",
+      "message" => "Message :",
     ]
     ?>
     <?php include_once "header.php" ?>
     <div class="content">
-      <h1>Présentation</h1>
       <div>
         <div>
-          <label>Nom :</label> <?php echo $data["firstname"]; ?>
-        </div>
-        <div>
-          <label>Prenom :</label> <?php echo $data["lastname"]; ?>
-        </div>
-        <div>
-          <img src="<?php echo $data["picture_url"] ?>"><img>
-        </div>
-        <div>
-          <h3>Compétence</h3>
-          <ul>
-            <?php foreach ($data["skills"] as $skill): ?>
-            <li> 
-              <p><?php echo $skill["name"]; ?></p>
-              <p><?php echo $skill["level"]; ?></p>
-            </li>
-            <?php endforeach; ?>
-          </ul>
+          <br>
+          <h1 style="margin-top:20px;">Page Contact</h1>
+          <h3 style="margin-top:3%;">Envoyer un message</h3>
+          <form style="margin-left:40%; margin-right:auto;" action="/ma-page-de-traitement" method="post">
+              <div>
+                  <label for="name"><?php echo $data["name"]; ?></label>
+                  <input type="text" id="name" name="user_name">
+              </div>
+              <div>
+                  <label for="mail"><?php echo $data["mail"]; ?></label>
+                  <input type="email" id="mail" name="user_mail">
+              </div>
+              <div>
+                  <label for="msg"><?php echo $data["message"]; ?></label>
+                  <textarea id="msg" name="user_message"></textarea>
+              </div>
+              <div class="button" style="margin-left:-30px; margin-bottom:50px;">
+                <button type="submit">Envoyer le message</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
