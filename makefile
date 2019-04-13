@@ -1,6 +1,19 @@
+DB_USER = root
+DB_PASSWORD = rootroot
+DB_NAME = gdbdd
+
 #Starting webServer
 start: 
-	php -S localhost:8000
+	php -S localhost:8000 -t public/
+
+db.create:
+	mysql -u ${DB_USER} -p${DB_PASSWORD} -e 'CREATE DATABASE IF NOT EXISTS ${DB_NAME}'
+	mysql -u ${DB_USER} -p${DB_PASSWORD} ${DB_NAME} < ./data/db.sql
+
+db.destroy:
+	mysql -u ${DB_USER} -p${DB_PASSWORD} -e 'DROP DATABASE IF EXISTS ${DB_NAME}'
+
+db.reset: db.destroy db.create
 
 # Show this help.
 help:
