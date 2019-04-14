@@ -1,4 +1,4 @@
-DB_USER = root
+DB_USER = gabindepaire
 DB_PASSWORD = rootroot
 DB_NAME = gdbdd
 

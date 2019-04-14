@@ -1,3 +1,17 @@
+<?php
+include_once ('./../src/setup.php');
+$dbh = new PDO('mysql:host=127.0.0.1;dbname=gdbdd;port=3306', 'gabindepaire', 'rootroot');
+
+$userRepository = new \User\UserRepository($dbh);
+$skillRepository = new \Skill\SkillRepository($dbh);
+
+$user = $userRepository->fetch();
+$skills = $skillRepository->fetchAll();
+
+$user["skills"] = $skills;
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,36 +19,39 @@
     <?php include_once "include-headers.html" ?>
   </head
   <body>
-    <?php 
-    $data = [
-      "firstname" => "Gabin",
-      "lastname" => "Depaire",
-      "picture_url" => "https://cdn2.iconfinder.com/data/icons/identificon/96/user-male-2-512.png",
-      "skills" => [
-        ["name" => "Compétence 1", "level" => 28],
-        ["name" => "Compétence 2", "level" => 72],
-        ["name" => "Compétence 3", "level" => 148]
-      ]
-    ]
-    ?>
     <?php include_once "header.php" ?>
     <div class="content">
       <h1>Présentation</h1>
       <div>
         <div>
-          <label>Nom :</label> <?php echo $data["firstname"]; ?><br>
-          <label>Prenom :</label> <?php echo $data["lastname"]; ?><br>
-          <img src="<?php echo $data["picture_url"] ?>" style="height:300px ;margin-left:40%;margin-right:auto;"><img>
+          <label>Nom :</label> <?php echo $user["firstname"]; ?><br>
+          <label>Prenom :</label> <?php echo $user["lastname"]; ?><br>
+          <img src="<?php echo $user["picture_url"] ?>" style="height:300px ;margin-left:40%;margin-right:auto;"><img>
         </div>
         <div>
           <h3>Compétence</h3>
           <ul>
-            <?php foreach ($data["skills"] as $skill): ?>
+            <?php foreach ($user["skills"] as $skill): ?>
             <li> 
-              <p><?php echo $skill["name"]; ?></p>
+              <p><?php echo $skill["text"]; ?></p>
               <p><?php echo $skill["level"]; ?></p>
             </li>
             <?php endforeach; ?>
+            <li>
+              <form action="/addSkill.php" method="post">
+                <div>
+                <label>Text</label>
+                  <input type="text" name="text">
+                  </div>
+                <div>
+                  <label>Level</label>
+                  <input type="text" name="level">
+                </div>
+                <div>
+                  <button type="submit" value="Ok">Ok</button>
+                </div>
+              </form>
+            </li>
           </ul>
         </div>
       </div>

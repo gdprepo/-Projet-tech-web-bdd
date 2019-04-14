@@ -27,16 +27,17 @@ VALUES ('Site Statique', '2013', 'Python projet 2010.......................');
 
 CREATE TABLE IF NOT EXISTS free_space (
     id INT AUTO_INCREMENT,
+    activite VARCHAR(80) NOT NULL,
     text VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 )  ENGINE=INNODB;
 
-INSERT INTO free_space (text)
-VALUES ('Sports : .......................');
-INSERT INTO free_space (text)
-VALUES ('Activitées : .......................');
-INSERT INTO free_space (text)
-VALUES ('Musique : .......................');
+INSERT INTO free_space (activite, text)
+VALUES ('Sport' ,'Sports : .......................');
+INSERT INTO free_space (activite, text)
+VALUES ('Activité' ,'Activitées : .......................');
+INSERT INTO free_space (activite, text)
+VALUES ('Musique' ,'Musique : .......................');
 
 CREATE TABLE IF NOT EXISTS study (
     id INT AUTO_INCREMENT,
@@ -72,13 +73,14 @@ CREATE TABLE IF NOT EXISTS professionnal (
     start_date VARCHAR(80) NOT NULL,
     end_date VARCHAR(80) NOT NULL,
     description VARCHAR(255) NOT NULL,
+    organisme VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 )  ENGINE=INNODB;
 
-INSERT INTO professionnal (title, start_date, end_date, description)
-VALUES ('Entreprise Design Lezard', '20/10/2010', '20/10/2011','Description du projet 2010.......................');
-INSERT INTO professionnal (title, start_date, end_date, description)
-VALUES ('Entreprise Hotel Sain Jean d Acre', '20/10/2018', '20/10/2019','Description du projet 2010.......................');
+INSERT INTO professionnal (title, start_date, end_date, description, organisme)
+VALUES ('Entreprise Design Lezard', '20/10/2010', '20/10/2011','Description du projet 2010.......................', "organisme");
+INSERT INTO professionnal (title, start_date, end_date, description, organisme)
+VALUES ('Entreprise Hotel Sain Jean d Acre', '20/10/2018', '20/10/2019','Description du projet 2010.......................', "organisme");
 
 CREATE TABLE IF NOT EXISTS contact (
     id INT AUTO_INCREMENT,
@@ -106,6 +108,23 @@ VALUES ('6 rue de la..... 75000', 'Zelairez',  'Pierre','Content message........
 INSERT INTO message (adresse, nom, prenom, content)
 VALUES ('10 rue de la..... 17000', 'Elaire',  'Jasque','Content message...............');
 
+CREATE TABLE IF NOT EXISTS realisation (
+    id INT AUTO_INCREMENT,
+    title VARCHAR(80) NOT NULL,
+    picture VARCHAR(255) NOT NULL,
+    logiciel VARCHAR(80) NOT NULL,
+    lien VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+)  ENGINE=INNODB;
+
+INSERT INTO realisation (title, picture, logiciel, lien)
+VALUES ('Projet Unity game 2D', 'https://yka.ch/wp-content/uploads/2016/11/unity-logo-e1480441742952.png',  'Unity','https://github.com/');
+INSERT INTO realisation (title, picture, logiciel, lien)
+VALUES ('Projet After effect', 'https://www.digitalartsonline.co.uk/cmsdata/features/3663925/adobe-premiere-pro-2017-opener.jpg',  'Adobe After Effect','https://github.com/');
+INSERT INTO realisation (title, picture, logiciel, lien)
+VALUES ('Projet python site statique', 'https://fortimelp.fr/296/formation-python-les-fondamentaux-3-jours.jpg',  'Python','https://github.com/');
+INSERT INTO realisation (title, picture, logiciel, lien)
+VALUES ('Projet WEB', 'http://anyssehalifa.fr/img/portfolio/EAP_responsive2.jpg',  'HTML / CSS / JAVA','https://github.com/');
 
 
 
