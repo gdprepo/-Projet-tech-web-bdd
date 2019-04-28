@@ -93,7 +93,7 @@ $user["rubrique"] = $rubrique;
               <p><?php echo $parcour["start_date"]; ?> - <?php echo $parcour["end_date"]; ?></p>
             </li>
             <?php endforeach; ?>
-              <li>
+            <li>
               <form action="/addParcour.php" method="post">
                 <div style="margin-left: -130px;">
                   <label>Nom de l'etablissement</label>
@@ -153,6 +153,21 @@ $user["rubrique"] = $rubrique;
               <p><?php echo $libre["text"]; ?></p>
             </li>
             <?php endforeach; ?>
+            <li>
+              <form action="/addRubriques.php" method="post">
+                <div>
+                <label>Activité</label>
+                  <input type="activite" name="activite">
+                  </div>
+                <div>
+                  <label>Résumé</label>
+                  <input type="text" name="text">
+                </div>
+                <div>
+                  <button type="submit" value="Ok">Ok</button>
+                </div>
+              </form>
+            </li>
           </ul>
         </div>
       </div>

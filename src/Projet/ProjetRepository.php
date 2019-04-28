@@ -18,13 +18,12 @@ class ProjetRepository {
 
     public function insert(array $data ) {
         try {
-            $stmt = $this->dbh->prepare("INSERT INTO realisation VALUES (:titleValue, :pictureValue, :logicielValue, :lienValue)");
+            $stmt = $this->dbh->prepare('INSERT INTO realisation (title, picture, logiciel, lien) VALUES (:title, :picture, :logiciel, :lien)');
+            $stmt->bindParam(':title', $data["title"]);
+            $stmt->bindParam(':picture', $data["picture"]);
+            $stmt->bindParam(':logiciel', $data["logiciel"]);
+            $stmt->bindParam(':lien', $data["lien"]);
 
-
-            $stmt->bindValue(':titleValue', 'title', PDO::PARAM_STR);
-            $stmt->bindValue(':pictureValue', 'picture', PDO::PARAM_STR);
-            $stmt->bindValue(':logicielValue', 'logiciel', PDO::PARAM_STR);
-            $stmt->bindValue(':lienValue', 'lien', PDO::PARAM_STR);
             var_dump($stmt->execute());
 
         } catch (\Exception $e) {

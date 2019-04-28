@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS study (
     id INT AUTO_INCREMENT,
     name VARCHAR(80) NOT NULL,
     description VARCHAR(255) NOT NULL,
-    start_date DATE NOT NULL,
-    end_date DATE DEFAULT NULL,
+    start_date VARCHAR(80) NOT NULL,
+    end_date VARCHAR(80) NOT NULL,
     PRIMARY KEY (id)
 )  ENGINE=INNODB;
 

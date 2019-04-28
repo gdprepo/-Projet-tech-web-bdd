@@ -36,20 +36,20 @@ $data = ["projet" => $projet]
             <li>
               <form action="/addProjet.php" method="post">
                 <div>
-                <label>Titre</label>
-                  <input type="text" name="title">
-                  </div>
-                <div>
-                  <label>Lien du projet</label>
-                  <input type="text" name="lien">
+                  <label>Titre</label>
+                  <input type="title" name="title">
                 </div>
                 <div>
-                  <label>Image</label>
-                  <input type="text" name="picture">
+                  <label>Date de fin :</label>
+                  <input type="picture" name="picture">
                 </div>
                 <div>
-                  <label>Logiciel</label>
-                  <input type="text" name="logiciel">
+                  <label>Titre</label>
+                  <input type="logiciel" name="logiciel">
+                </div>
+                <div>
+                  <label>Description</label>
+                  <input type="lien" name="lien">
                 </div>
                 <div>
                   <button type="submit" value="Ok">Ok</button>
