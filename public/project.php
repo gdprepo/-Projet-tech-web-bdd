@@ -33,6 +33,29 @@ $data = ["projet" => $projet]
                 <a href="<?php echo $skill["lien"]; ?>">lien vers le projet</a>
               </li>
             <?php endforeach; ?>
+            <li>
+              <form action="/addProjet.php" method="post">
+                <div>
+                <label>Titre</label>
+                  <input type="text" name="title">
+                  </div>
+                <div>
+                  <label>Lien du projet</label>
+                  <input type="text" name="lien">
+                </div>
+                <div>
+                  <label>Image</label>
+                  <input type="text" name="picture">
+                </div>
+                <div>
+                  <label>Logiciel</label>
+                  <input type="text" name="logiciel">
+                </div>
+                <div>
+                  <button type="submit" value="Ok">Ok</button>
+                </div>
+              </form>
+            </li>
           </ul>
         </div>
       </div>

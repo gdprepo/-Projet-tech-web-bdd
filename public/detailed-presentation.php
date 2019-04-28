@@ -26,7 +26,7 @@ $user["rubrique"] = $rubrique;
   <head>
     <title>Presentation Détaillée</title>
     <?php include_once "include-headers.html" ?>
-  </head
+  </head> 
   <body>
     <?php include_once "header.php" ?>
     <div class="content">
@@ -46,14 +46,41 @@ $user["rubrique"] = $rubrique;
           <ul>
             <?php foreach ($user["experience"] as $exp): ?>
             <li> 
-              <p><?php echo $exp["start_date"]; ?> -
+              <p><?php echo $exp["start_date"]; ?> ->
                 <?php echo $exp["end_date"]; ?><br>
                 <?php echo $exp["title"]; ?>
-              </p><br>
+              </p>
               <p><?php echo $exp["description"]; ?></p>
               <p><?php echo $exp["organisme"]; ?></p>
             </li>
             <?php endforeach; ?>
+            <li>
+              <form action="/addExp.php" method="post">
+                <div style="margin-left: -130px;">
+                  <label>Date de début :</label>
+                  <input type="text" name="start_date" style="width:150px;">
+                </div>
+                <div style="margin-left: 180px; margin-top: -65px;">
+                  <label>Date de fin :</label>
+                  <input type="text" name="end_date" style="width:150px;">
+                </div>
+                <div>
+                  <label>Titre</label>
+                  <input type="text" name="title">
+                </div>
+                <div>
+                  <label>Description</label>
+                  <input type="text" name="description">
+                </div>
+                <div>
+                  <label>Organisme</label>
+                  <input type="text" name="organisme">
+                </div>
+                <div>
+                  <button type="submit" value="Ok">Ok</button>
+                </div>
+              </form>
+            </li>
           </ul>
         </div>
         <div>
@@ -66,6 +93,29 @@ $user["rubrique"] = $rubrique;
               <p><?php echo $parcour["start_date"]; ?> - <?php echo $parcour["end_date"]; ?></p>
             </li>
             <?php endforeach; ?>
+              <li>
+              <form action="/addParcour.php" method="post">
+                <div style="margin-left: -130px;">
+                  <label>Nom de l'etablissement</label>
+                    <input type="text" name="name" style="width:150px;">
+                  </div>
+                <div style="margin-left: 180px; margin-top: -65px;">
+                  <label>Description</label>
+                  <input type="text" name="description" style="width:150px;">
+                </div>
+                <div>
+                  <label>Date de debut</label>
+                  <input type="text" name="start_date">
+                </div>
+                <div>
+                  <label>Date de fin</label>
+                  <input type="text" name="end_date">
+                </div>
+                <div>
+                  <button type="submit" value="Ok">Ok</button>
+                </div>
+              </form>
+            </li>
           </ul>
         </div>
         <div>

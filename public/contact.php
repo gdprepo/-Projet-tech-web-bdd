@@ -21,7 +21,7 @@
           <h3 style="margin-top:3%;">Envoyer un message</h3>
           <form style="margin-left:40%; margin-right:auto;" action="/ma-page-de-traitement" method="post">
               <div>
-                  <label for="name"><?php echo $data["name"]; ?></label>
+                  <label for="name">Nom :</label>
                   <input type="text" id="name" name="user_name">
               </div>
               <div>
@@ -34,7 +34,7 @@
               </div>
               <div class="button" style="margin-left:-30px; margin-bottom:50px;">
                 <button type="submit">Envoyer le message</button>
-            </div>
+              </div>
           </form>
         </div>
       </div>

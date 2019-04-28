@@ -33,11 +33,11 @@ CREATE TABLE IF NOT EXISTS free_space (
 )  ENGINE=INNODB;
 
 INSERT INTO free_space (activite, text)
-VALUES ('Sport' ,'Sports : .......................');
+VALUES ('Sport' ,'Résumé .......................');
 INSERT INTO free_space (activite, text)
-VALUES ('Activité' ,'Activitées : .......................');
+VALUES ('Activité' ,'Résumé .......................');
 INSERT INTO free_space (activite, text)
-VALUES ('Musique' ,'Musique : .......................');
+VALUES ('Musique' ,'Résumé .......................');
 
 CREATE TABLE IF NOT EXISTS study (
     id INT AUTO_INCREMENT,
@@ -49,9 +49,9 @@ CREATE TABLE IF NOT EXISTS study (
 )  ENGINE=INNODB;
 
 INSERT INTO study (name, description, start_date, end_date)
-VALUES ('Lycee Fenelon', 'La rochelle lycée description du projet SCOLAIRE.......................', '2014-09-03', '2017-09-03');
+VALUES ('Lycee', 'La rochelle lycée description du projet SCOLAIRE.......................', '2014-09-03', '2017-09-03');
 INSERT INTO study (name, description, start_date, end_date)
-VALUES ('Epitech', 'Ecole de programmation C première année SCOLAIRE.......................', '2017-09-03', null);
+VALUES ('Epitech', 'Ecole de programmation C première année SCOLAIRE.......................', '2017-09-03', '2017-09-03');
 
 CREATE TABLE IF NOT EXISTS skills (
     id INT AUTO_INCREMENT,
