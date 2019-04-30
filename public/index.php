@@ -24,10 +24,29 @@ $user["skills"] = $skills;
       <h1>Présentation</h1>
       <div>
         <div>
-          <label>Nom :</label> <?php echo $user["firstname"]; ?><br>
-          <label>Prenom :</label> <?php echo $user["lastname"]; ?><br>
-          <img src="<?php echo $user["picture_url"] ?>" style="height:300px ;margin-left:40%;margin-right:auto;"><img>
+          <label>Nom :</label> <?php echo $user["lastname"]; ?><br>
+          <label>Prenom :</label> <?php echo $user["firstname"]; ?><br>
+          <img src="<?php echo $user["picture_url"] ?>" style="height:400px ;margin-left:30%;margin-right:auto;"><img>
         </div>
+        <li>
+              <form action="/addUser.php" method="post">
+                <div>
+                <label>Prenom</label>
+                  <input type="text" name="lastname">
+                  </div>
+                <div>
+                  <label>Nom</label>
+                  <input type="text" name="firstname">
+                </div>
+                <div>
+                  <label>Image</label>
+                  <input type="text" name="picture_url">
+                </div>
+                <div>
+                  <button type="submit" value="Ok">Ok</button>
+                </div>
+              </form>
+            </li>
         <div>
           <h3>Compétence</h3>
           <ul>

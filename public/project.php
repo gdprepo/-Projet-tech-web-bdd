@@ -40,7 +40,7 @@ $data = ["projet" => $projet]
                   <input type="title" name="title">
                 </div>
                 <div>
-                  <label>Date de fin :</label>
+                  <label>Picture :</label>
                   <input type="picture" name="picture">
                 </div>
                 <div>
