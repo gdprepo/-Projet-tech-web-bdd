@@ -41,6 +41,25 @@ $user["rubrique"] = $rubrique;
         <div>
           <img src="<?php echo $user["picture_url"] ?>"><img>
         </div>
+        <li>
+          <form action="/addUser.php" method="post">
+            <div>
+            <label>Prenom</label>
+              <input type="text" name="lastname">
+              </div>
+            <div>
+              <label>Nom</label>
+              <input type="text" name="firstname">
+            </div>
+            <div>
+              <label>Image</label>
+              <input type="text" name="picture_url">
+            </div>
+            <div>
+              <button type="submit" value="Ok">Ok</button>
+            </div>
+          </form>
+        </li>
         <div>
           <h3>Experiences Profesionnelles</h3>
           <ul>
