@@ -30,6 +30,9 @@ $user["rubrique"] = $rubrique;
   <body>
     <?php include_once "header.php" ?>
     <div class="content">
+      <div>
+        <button id="demo" onclick="myFonction()" class="btn-admin btn-danger">Admin MODE</button>
+      </div>
       <h1>Présentation Détaillée</h1>
       <div>
         <div>
@@ -41,25 +44,27 @@ $user["rubrique"] = $rubrique;
         <div>
           <img src="<?php echo $user["picture_url"] ?>"><img>
         </div>
-        <li>
-          <form action="/addUser.php" method="post">
-            <div>
-            <label>Prenom</label>
-              <input type="text" name="lastname">
+        <div id="user_admin" style="display:none;">
+          <li>
+            <form action="/addUser.php" method="post">
+              <div>
+              <label>Prenom</label>
+                <input type="text" name="lastname">
+                </div>
+              <div>
+                <label>Nom</label>
+                <input type="text" name="firstname">
               </div>
-            <div>
-              <label>Nom</label>
-              <input type="text" name="firstname">
-            </div>
-            <div>
-              <label>Image</label>
-              <input type="text" name="picture_url">
-            </div>
-            <div>
-              <button type="submit" value="Ok">Ok</button>
-            </div>
-          </form>
-        </li>
+              <div>
+                <label>Image</label>
+                <input type="text" name="picture_url">
+              </div>
+              <div>
+                <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+              </div>
+            </form>
+          </li>
+        </div>
         <div>
           <h3>Experiences Profesionnelles</h3>
           <ul>
@@ -73,33 +78,35 @@ $user["rubrique"] = $rubrique;
               <p><?php echo $exp["organisme"]; ?></p>
             </li>
             <?php endforeach; ?>
-            <li>
-              <form action="/addExp.php" method="post">
-                <div style="margin-left: -130px;">
-                  <label>Date de début :</label>
-                  <input type="text" name="start_date" style="width:150px;">
-                </div>
-                <div style="margin-left: 180px; margin-top: -65px;">
-                  <label>Date de fin :</label>
-                  <input type="text" name="end_date" style="width:150px;">
-                </div>
-                <div>
-                  <label>Titre</label>
-                  <input type="text" name="title">
-                </div>
-                <div>
-                  <label>Description</label>
-                  <input type="text" name="description">
-                </div>
-                <div>
-                  <label>Organisme</label>
-                  <input type="text" name="organisme">
-                </div>
-                <div>
-                  <button type="submit" value="Ok">Ok</button>
-                </div>
-              </form>
-            </li>
+            <div id="exp_admin" style="display:none;">
+              <li>
+                <form action="/addExp.php" method="post">
+                    <div style="margin-left: -130px;">
+                      <label>Date de début :</label>
+                      <input type="text" name="start_date" style="width:150px;">
+                    </div>
+                    <div style="margin-left: 180px; margin-top: -65px;">
+                      <label>Date de fin :</label>
+                      <input type="text" name="end_date" style="width:150px;">
+                    </div>
+                    <div>
+                      <label>Titre</label>
+                      <input type="text" name="title">
+                    </div>
+                    <div>
+                      <label>Description</label>
+                      <input type="text" name="description">
+                    </div>
+                    <div>
+                      <label>Organisme</label>
+                      <input type="text" name="organisme">
+                    </div>
+                    <div>
+                      <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                    </div>
+                </form>
+              </li>
+            </div>
           </ul>
         </div>
         <div>
@@ -112,29 +119,32 @@ $user["rubrique"] = $rubrique;
               <p><?php echo $parcour["start_date"]; ?> - <?php echo $parcour["end_date"]; ?></p>
             </li>
             <?php endforeach; ?>
-            <li>
-              <form action="/addParcour.php" method="post">
-                <div style="margin-left: -130px;">
-                  <label>Nom de l'etablissement</label>
-                    <input type="text" name="name" style="width:150px;">
-                  </div>
-                <div style="margin-left: 180px; margin-top: -65px;">
-                  <label>Description</label>
-                  <input type="text" name="description" style="width:150px;">
-                </div>
-                <div>
-                  <label>Date de debut</label>
-                  <input type="text" name="start_date">
-                </div>
-                <div>
-                  <label>Date de fin</label>
-                  <input type="text" name="end_date">
-                </div>
-                <div>
-                  <button type="submit" value="Ok">Ok</button>
-                </div>
-              </form>
-            </li>
+            <div id="parcour_admin" style="display:none;">
+              <li>
+                <form action="/addParcour.php" method="post">
+                    <div style="margin-left: -130px;">
+                      <label>Nom de l'etablissement</label>
+                        <input type="text" name="name" style="width:150px;">
+                      </div>
+                    <div style="margin-left: 180px; margin-top: -65px;">
+                      <label>Description</label>
+                      <input type="text" name="description" style="width:150px;">
+                    </div>
+                    <div>
+                      <label>Date de debut</label>
+                      <input type="text" name="start_date">
+                    </div>
+                    <div>
+                      <label>Date de fin</label>
+                      <input type="text" name="end_date">
+                    </div>
+                    <div>
+                      <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                    </div>
+
+                </form>
+              </div>
+              </li>
           </ul>
         </div>
         <div>
@@ -146,21 +156,23 @@ $user["rubrique"] = $rubrique;
               <p><?php echo $skill["level"]; ?></p>
             </li>
             <?php endforeach; ?>
-            <li>
-              <form action="/addSkill.php" method="post">
-                <div>
-                <label>Text</label>
-                  <input type="text" name="text">
-                  </div>
-                <div>
-                  <label>Level</label>
-                  <input type="text" name="level">
-                </div>
-                <div>
-                  <button type="submit" value="Ok">Ok</button>
-                </div>
-              </form>
-            </li>
+            <div id="skill_admin" style="display:none;">
+              <li>
+                <form action="/addSkill.php" method="post">
+                    <div>
+                    <label>Text</label>
+                      <input type="text" name="text">
+                      </div>
+                    <div>
+                      <label>Level</label>
+                      <input type="text" name="level">
+                    </div>
+                    <div>
+                      <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                    </div>
+                </form>
+              </li>
+            </div>
           </ul>
         </div>
         <div>
@@ -172,25 +184,54 @@ $user["rubrique"] = $rubrique;
               <p><?php echo $libre["text"]; ?></p>
             </li>
             <?php endforeach; ?>
-            <li>
-              <form action="/addRubriques.php" method="post">
-                <div>
-                <label>Activité</label>
-                  <input type="activite" name="activite">
-                  </div>
-                <div>
-                  <label>Résumé</label>
-                  <input type="text" name="text">
-                </div>
-                <div>
-                  <button type="submit" value="Ok">Ok</button>
-                </div>
-              </form>
-            </li>
+            <div id="rubrique_admin" style="display:none;">
+              <li>
+                <form action="/addRubriques.php" method="post">
+                    <div>
+                    <label>Activité</label>
+                      <input type="activite" name="activite">
+                      </div>
+                    <div>
+                      <label>Résumé</label>
+                      <input type="text" name="text">
+                    </div>
+                    <div>
+                      <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                    </div>
+                </form>
+              </li>
+            </div>
           </ul>
         </div>
       </div>
     </div>
     <?php include_once "footer.php" ?>
   </body>
+
+  <script>
+    document.getElementById("demo").onclick = function() {myFunction()};
+    
+    function myFunction() {
+      if (document.getElementById("user_admin").style.display == 'none')
+      {
+          document.getElementById("user_admin").style.display = 'block';
+          document.getElementById("exp_admin").style.display = 'block';
+          document.getElementById("parcour_admin").style.display = 'block';
+          document.getElementById("skill_admin").style.display = 'block';
+          document.getElementById("rubrique_admin").style.display = 'block';
+      }
+      else 
+      {
+          document.getElementById("user_admin").style.display = 'none';
+          document.getElementById("exp_admin").style.display = 'none';
+          document.getElementById("parcour_admin").style.display = 'none';
+          document.getElementById("skill_admin").style.display = 'none';
+          document.getElementById("rubrique_admin").style.display = 'none';
+      }
+    }
+  </script>
+
+
+
+
 </html>

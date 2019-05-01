@@ -21,6 +21,9 @@ $data = ["projet" => $projet]
     <?php include_once "header.php" ?>
     <div class="content">
       <div>
+        <div>
+          <button id="demo" onclick="myFonction()" class="btn-admin btn-danger">Admin MODE</button>
+        </div>
         <h1>Projets / Réalisations</h1>
           <ul>
             <?php foreach ($data["projet"] as $skill): ?>
@@ -33,33 +36,55 @@ $data = ["projet" => $projet]
                 <a href="<?php echo $skill["lien"]; ?>">lien vers le projet</a>
               </li>
             <?php endforeach; ?>
-            <li>
-              <form action="/addProjet.php" method="post">
-                <div>
-                  <label>Titre</label>
-                  <input type="title" name="title">
-                </div>
-                <div>
-                  <label>Picture :</label>
-                  <input type="picture" name="picture">
-                </div>
-                <div>
-                  <label>Titre</label>
-                  <input type="logiciel" name="logiciel">
-                </div>
-                <div>
-                  <label>Description</label>
-                  <input type="lien" name="lien">
-                </div>
-                <div>
-                  <button type="submit" value="Ok">Ok</button>
-                </div>
-              </form>
-            </li>
+            <div id="projet" style="display:none;">    
+              <li>
+                <form action="/addProjet.php" method="post">
+                    <div>
+                      <label>Titre</label>
+                      <input type="title" name="title">
+                    </div>
+                    <div>
+                      <label>Picture :</label>
+                      <input type="picture" name="picture">
+                    </div>
+                    <div>
+                      <label>Titre</label>
+                      <input type="logiciel" name="logiciel">
+                    </div>
+                    <div>
+                      <label>Description</label>
+                      <input type="lien" name="lien">
+                    </div>
+                    <div>
+                      <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                    </div>
+                  </div>
+                </form>
+              </li>
+            </div>
           </ul>
         </div>
       </div>
     </div>
     <?php include_once "footer.php" ?>
   </body>
+
+    <script>
+      document.getElementById("demo").onclick = function() {myFunction()};
+      
+      function myFunction() {
+        if (document.getElementById("projet").style.display == 'none')
+        {
+            document.getElementById("projet").style.display = 'block';
+        }
+        else 
+        {
+            document.getElementById("projet").style.display = 'none';
+        }
+      }
+    </script>
+
+
+
+
 </html>
