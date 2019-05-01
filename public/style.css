@@ -1,5 +1,10 @@
-.content {
+body {
     background-color: #CCC;
+}
+
+.content {
+    background-color:white;
+    padding: 15px;
 }
 
 .btn {
@@ -16,5 +21,21 @@
 
 .btn-danger {
     background-color:rgb(73, 73, 73);
+}
+
+.main-container {
+    margin-top: 30px;
+}
+
+.admin-mode {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.form-row {
+    display: none;
 }
 

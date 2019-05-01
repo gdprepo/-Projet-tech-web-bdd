@@ -12,7 +12,7 @@ $userRepository = new \User\UserRepository($dbh);
 
 
 if (null !== $data["lastname"] &&  null !== $data["firstname"] &&  null !== $data["picture_url"]) {
-    $userRepository->insert($data);
+    $userRepository->update($data);
 }
 
 
