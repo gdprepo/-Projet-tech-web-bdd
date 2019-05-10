@@ -29,4 +29,23 @@ class ExperienceRepository {
             var_dump($e); exit;
         }
     }
+
+    public function delete($id) {
+        try {
+            $stmt = $this->dbh->prepare("DELETE FROM professionnal WHERE id =  :id ");
+            $stmt->bindParam(':id', $id);
+            var_dump($stmt->execute());
+        } catch (\Exception $e) {
+            var_dump($e); exit;
+        }
+    }
+
+    public function update(array $data ) {
+        try {
+            $stmt = $this->dbh->prepare('UPDATE professionnal SET start_date = " '.$_POST['start_date'].' ", end_date = " '.$_POST['end_date'].' ", title = " '.$_POST['title'].'", description = " '.$_POST['description'].' ", organisme = " '.$_POST['organisme'].' " WHERE id=" '.$_POST['id'].' "');
+            var_dump($stmt->execute());
+        } catch (\Exception $e) {
+            var_dump($e); exit;
+        }
+    }
 }

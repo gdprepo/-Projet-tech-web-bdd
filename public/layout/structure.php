@@ -24,28 +24,27 @@ function loadStructure($page, $title, $data) {
                     <label>   Nom :</label> <?php echo $data["lastname"]; ?><br>
                     <label>Prenom :</label> <?php echo $data["firstname"]; ?><br>
                   </p>
-                </div>
-              </div>
-              <div class="admin-mode" style="display:none;">
-                <li>
-                  <form action="/editUser.php" method="post">
-                    <div>
-                    <label>Prenom</label>
-                      <input type="text" name="lastname">
+                  <div class="admin-mode" style="display:none;">
+                    <form action="/editUser.php" method="post">
+                      <div>
+                        <label>Prenom</label>
+                        <input type="text" name="lastname" style="margin-left:10%; margin-right:auto;">
+                        </div>
+                      <div>
+                        <label>Nom</label>
+                        <input type="text" name="firstname" style="margin-left:18%; margin-right:auto;">
                       </div>
-                    <div>
-                      <label>Nom</label>
-                      <input type="text" name="firstname">
-                    </div>
-                    <div>
-                      <label>Image</label>
-                      <input type="text" name="picture_url">
-                    </div>
-                    <div>
-                      <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
-                    </div>
-                  </form>
-                </li>
+                      <div>
+                        <label>Image</label>
+                        <input type="text" name="picture_url" style="margin-left:14%; margin-right:auto;">
+                      </div>
+                      <div>
+                        <button style="margin-left:30%; margin-top:20px;margin-right:auto;" class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-md-8">

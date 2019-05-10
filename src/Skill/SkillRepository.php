@@ -36,4 +36,13 @@ class SkillRepository {
             var_dump($e); exit;
         }
     }
+
+    public function update(array $data) {
+        try {
+            $stmt = $this->dbh->prepare('UPDATE skills SET text = " '.$_POST['text'].' ", level = " '.$_POST['level'].' " WHERE id=" '.$_POST['id'].' "');
+            var_dump($stmt->execute());
+        } catch (\Exception $e) {
+            var_dump($e); exit;
+        }
+    }
 }

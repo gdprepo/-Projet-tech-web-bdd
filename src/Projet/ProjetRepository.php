@@ -30,4 +30,12 @@ class ProjetRepository {
             var_dump($e); exit;
         }
     }
+
+    public function update(array $data ) {
+        try {
+            $stmt = $this->dbh->prepare('UPDATE realisation SET title = " '.$_POST['title'].' ", picture = " '.$_POST['picture'].' ", logiciel = " '.$_POST['logiciel'].'", lien = " '.$_POST['lien'].' " ');
+        } catch (\Exception $e) {
+            var_dump($e); exit;
+        }
+    }
 }

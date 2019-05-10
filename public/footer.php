@@ -1,5 +1,125 @@
-<footer class="footer mt-auto py-3">
-    <div class="container" style="padding-bottom:50px;">
-        <span class="text-muted" style="margin-left:70%;">Bienvenue sur mon CV en ligne...</span>
+<style>
+    /* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: rgb(73, 73, 73);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    background: rgb(73, 73, 73) !important;
+}
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+#footer ul.social li a:hover{
+	color:#eeeeee;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+}
+
+
+</style>
+
+<!-- Footer -->
+<section id="footer" style="margin-top:50px">
+    <div class="container">
+        <div style="margin-left:30%; margin-right:auto;" class="row text-center text-xs-center text-sm-left text-md-left">
+            <div class="col-xs-2 col-sm-6 col-md-3" style="margin-left:-10%; ;margin-right:35%;">
+                <h5>Pages</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="./index.php"><i class="fa fa-angle-double-right"></i>Accueil</a></li>
+                    <li><a href="./detailed-presentation.php"><i class="fa fa-angle-double-right"></i>Presentation détaillé</a></li>
+                    <li><a href="./project.php"><i class="fa fa-angle-double-right"></i>Projets</a></li>
+                    <li><a href="./contact.php"><i class="fa fa-angle-double-right"></i>Contact</a></li>
+                    <li><a href="./admin.php"><i class="fa fa-angle-double-right"></i>Administrateur</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-3" style="margin-right:-40%;">
+                <h5>Contacts</h5>
+                <ul class="list-unstyled quick-links">
+                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Github</a></li>
+                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Facebook</a></li>
+                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Instagram</a></li>
+                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Linkedin</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                <ul class="list-unstyled list-inline social text-center">
+                    <li class="list-inline-item"><a href="https://facebook.com"><i class="fa fa-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="https://instagram.com"><i class="fa fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                    <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                </ul>
+            </div>
+            </hr>
+        </div>	
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                <p><u><a href="./index.php">Site Projet Ynov CV en ligne - G.D.</a></u></p>
+                <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="./index.php" target="_blank">France</a></p>
+            </div>
+            </hr>
+        </div>	
     </div>
-</footer>
+</section>

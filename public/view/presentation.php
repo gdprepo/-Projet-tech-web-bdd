@@ -151,6 +151,151 @@
         </form>
     </li>
 </ul>
+<ul class="list-group" style="margin-top:50px;">
+    <li class="list-group-item list-group-item-info"><h3>Parcours Scolaire</h3></li>
+    <?php foreach ($data["parcours"] as $parcour): ?>
+    <li class="list-group-item <?php echo "parcour-row-" . $parcour["id"] ?>">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5">
+                    <h4><?php echo $parcour["name"]; ?></h4>
+                </div>
+                <div class="col-md-2">
+                    <p><?php echo $parcour["description"]; ?></p>
+                </div>
+                <div class="col-md-2">
+                    <p><?php echo $parcour["start_date"]; ?> - <?php echo $parcour["end_date"]; ?></p>
+                </div>
+                <div class="col-md-2 admin-mode" style"margin-right:-50px;">
+                    <button class="btn btn-danger" type="button" value="Edit" onclick="toogleParcourForm(<?php echo  $parcour["id"] ?>)">Edit</button>
+                </div>
+                <div class="col-md-2 admin-mode" >
+                <form action="/deleteParcour.php" method="post" class="form-inline">
+                    <input type="hidden" name="id" value= <?php echo $parcour["id"]?> />
+                    <button style"margin-left:150px;" class="btn btn-danger" type="submit" value="Delete">Delete</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item form-row <?php echo "form-parcour-row-" . $parcour["id"] ?>">
+        <form action="/editParcour.php" method="post" class="form-inline">
+            <input type="hidden" name="id" value= <?php echo $parcour["id"]?> />
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3" style"margin-right:20px;">
+                        <input placeholder="Nom" type="text" name="name" value="<?php echo $parcour["name"]; ?>">
+                    </div>
+                    <div class="col-md-2">
+                        <input placeholder="Description" type="text" name="description" value="<?php echo $parcour["description"]; ?>">
+                    </div>
+                    <div class="col-md-2">
+                        <input placeholder="Date de début" type="text" name="start_date" value="<?php echo $parcour["start_date"]; ?>">
+                    </div>
+                    <div class="col-md-3">
+                        <input placeholder="Date de fin" type="text" name="end_date" value="<?php echo $parcour["end_date"]; ?>">
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-danger" type="button" value="Cancel" onclick="toogleParcourForm(<?php echo  $parcour["id"] ?>)">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </li>
+    <?php endforeach;?>
+    <li class="list-group-item admin-mode">
+        <form action="/addParcour.php" method="post" class="form-inline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <input placeholder="Nom" type="text" name="name">
+                    </div>
+                    <div class="col-md-2">
+                        <input placeholder="Description" type="text" name="description">
+                    </div>
+                    <div class="col-md-2">
+                        <input placeholder="Nom" type="text" name="name">
+                    </div>
+                    <div class="col-md-2">
+                        <input placeholder="Date de fin" type="text" name="end_date">
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </li>
+</ul>
+<ul class="list-group" style="margin-top:50px;">
+    <li class="list-group-item list-group-item-info"><h3>Rubriques Libres</h3></li>
+    <?php foreach ($data["rubrique"] as $libre): ?>
+    <li class="list-group-item <?php echo "rubrique-row-" . $libre["id"] ?>">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5">
+                    <p><?php echo $libre["activite"]; ?> :</p>
+                </div>
+                <div class="col-md-2">
+                    <p><?php echo $libre["text"]; ?></p>
+                </div>
+                <div class="col-md-2 admin-mode">
+                    <button class="btn btn-danger" type="button" value="Edit" onclick="toogleRubriqueForm(<?php echo  $libre["id"] ?>)">Edit</button>
+                </div>
+                <div class="col-md-2 admin-mode">
+                <form action="/deleteRubrique.php" method="post" class="form-inline">
+                    <input type="hidden" name="id" value= <?php echo $libre["id"]?> />
+                    <button class="btn btn-danger" type="submit" value="Delete">Delete</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item form-row <?php echo "form-rubrique-row-" . $libre["id"] ?>">
+        <form action="/editRubrique.php" method="post" class="form-inline">
+            <input type="hidden" name="id" value= <?php echo $libre["id"]?> />
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <input placeholder="Compétence" type="text" name="activite" value="<?php echo $libre["activite"]; ?>">
+                    </div>
+                    <div class="col-md-2">
+                        <input placeholder="niveau" type="text" name="text" value="<?php echo $libre["text"]; ?>">
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-danger" type="button" value="Cancel" onclick="toogleSkillForm(<?php echo  $libre["id"] ?>)">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </li>
+    <?php endforeach;?>
+    <li class="list-group-item admin-mode">
+        <form action="/addRubrique.php" method="post" class="form-inline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <input placeholder="Compétence" type="text" name="text">
+                    </div>
+                    <div class="col-md-2">
+                        <input placeholder="niveau" type="text" name="level">
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </li>
+</ul>
+
+
 <script>
     function toogleSkillForm(id) {
         $('.skill-row-' + id).toggle();
@@ -160,6 +305,12 @@
         $('.exp-row-' + id).toggle();
         $('.form-exp-row-' + id).toggle();
     }
+    function toogleParcourForm(id) {
+        $('.parcour-row-' + id).toggle();
+        $('.form-parcour-row-' + id).toggle();
+    }
+    function toogleRubriqueForm(id) {
+        $('.rubrique-row-' + id).toggle();
+        $('.form-rubrique-row-' + id).toggle();
+    }
 </script>
-
-

@@ -16,7 +16,7 @@ class UserRepository {
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function update(array $data ) {
+    public function update(array $data) {
         try {
             $stmt = $this->dbh->prepare('UPDATE user SET lastname = " '.$_POST['lastname'].' ", firstname = " '.$_POST['firstname'].' ", picture_url = " '.$_POST['picture_url'].'" ');
         } catch (\Exception $e) {
