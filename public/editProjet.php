@@ -1,6 +1,11 @@
 <?php
 include_once ('./../src/setup.php');
-$dbh = new PDO('mysql:host=127.0.0.1;dbname=gdbdd;port=3306', 'gabindepaire', 'rootroot');
+try {
+    $dbh = new PDO('mysql:host=gdcvonliphgdbdd.mysql.db;dbname=gdcvonliphgdbdd', 'gdcvonliphgdbdd', 'Gabin170');
+} catch (PDOException $e) {
+    print "Erreur !: " . $e->getMessage() . "<br/>";
+    die();
+}
 
 $data = [
     "title" => $_POST["title"],
@@ -12,11 +17,9 @@ $data = [
 $projetRepository = new \Projet\ProjetRepository($dbh);
 
 
-
-if (null !== $data["name"] &&  null !== $data["description"] &&  null !== $data["start_date"] &&  null !== $data["end_date"]) {
-    $parcourRepository->update($data);
+if (null !== $data["title"] &&  null !== $data["picture"] &&  null !== $data["logiciel"] &&  null !== $data["lien"]) {
+    $projetRepository->update($data);
 }
-
 
 
 

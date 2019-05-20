@@ -81,27 +81,6 @@ section .section-title {
 <!-- Footer -->
 <section id="footer" style="margin-top:50px">
     <div class="container">
-        <div style="margin-left:30%; margin-right:auto;" class="row text-center text-xs-center text-sm-left text-md-left">
-            <div class="col-xs-2 col-sm-6 col-md-3" style="margin-left:-10%; ;margin-right:35%;">
-                <h5>Pages</h5>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="./index.php"><i class="fa fa-angle-double-right"></i>Accueil</a></li>
-                    <li><a href="./detailed-presentation.php"><i class="fa fa-angle-double-right"></i>Presentation détaillé</a></li>
-                    <li><a href="./project.php"><i class="fa fa-angle-double-right"></i>Projets</a></li>
-                    <li><a href="./contact.php"><i class="fa fa-angle-double-right"></i>Contact</a></li>
-                    <li><a href="./admin.php"><i class="fa fa-angle-double-right"></i>Administrateur</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-10 col-sm-10 col-md-3" style="margin-right:-40%;">
-                <h5>Contacts</h5>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Github</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Facebook</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Instagram</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Linkedin</a></li>
-                </ul>
-            </div>
-        </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                 <ul class="list-unstyled list-inline social text-center">
@@ -113,13 +92,13 @@ section .section-title {
                 </ul>
             </div>
             </hr>
-        </div>	
+        </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
                 <p><u><a href="./index.php">Site Projet Ynov CV en ligne - G.D.</a></u></p>
                 <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="./index.php" target="_blank">France</a></p>
             </div>
             </hr>
-        </div>	
+        </div>
     </div>
 </section>

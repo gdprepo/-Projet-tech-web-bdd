@@ -18,9 +18,23 @@
       <li class="nav-item active">
         <a class="nav-link" href="/contact.php">Contact</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/admin.php">Admin</a>
-      </li>
+    <?php
+      $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+      $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+      $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+      $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+      $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
+
+      if ($iPod || $iPhone || $iPad || $Android) {
+        echo '
+        <li class="nav-item active">
+          <a class="nav-link" href="/admin.php">Admin Login</a>
+        </li>';
+      } else if ($webOS){
+
+      }
+        ?>
+
     </ul>
   </div>
 </nav>

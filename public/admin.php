@@ -1,26 +1,91 @@
 <!DOCTYPE html>
 
-<?php 
+<?php
+include_once './../src/setup.php';
+include_once './layout/structure.php';
 
+try {
+        $dbh = new PDO('mysql:host=gdcvonliphgdbdd.mysql.db;dbname=gdcvonliphgdbdd', 'gdcvonliphgdbdd', 'Gabin170');
+} catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage() . "<br/>";
+        die();
+}
+
+$userRepository = new \User\UserRepository($dbh);
+$user = $userRepository->fetch();
+
+session_start();
+$index=false;
+$errorMsg = "";
+$validUser = $_SESSION["login"] === false;
+if(isset($_POST["sub"])) {
+  $validUser = $_POST["username"] == "admin" && $_POST["password"] == $user["password"];
+  if(!$validUser) {
+    $errorMsg = "Invalid username or password.";
+  } else {
+    $validUser = true;
+    $index=true;
+  }
+}
+if($validUser) {
+   header("Location: /index.php"); die();
+}
+
+$_SESSION["admin"]=true;
 
 ?>
 
 <html>
   <head>
-    <title>Coucou</title>
+    <title>Login</title>
     <?php include_once "include-headers.html" ?>
-  </head
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
   <body>
-   <?php include_once "header.php" ?>
-    <div class="content">
-      <form method="post" action="admin.php">
-        Username:<br>
-        <input type="text" name="username"><br>
-        Password:<br>
-        <input type="password" name="password"><br>
-        <input type="submit" value="Login !">
+    <div class="container-fluid main-container">
+      <form class="form-signin" name="input" method="post" action="">
+        <h1 class="h3 mb-3 font-weight-normal">Admin Mode</h1>
+        <label>
+          <a href="./index.php">Retour a l'Accueil</a>
+        </label>
+        <input name="username" type="text" id="username" class="form-control" placeholder="Username" value="<?= $_POST["username"] ?>" required="" autofocus="">
+        <input style="" name="password" type="password" id="password" class="form-control" placeholder="Password" required="">
+        <div class="error"><?= $errorMsg ?></div>
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Se souvenir
+          </label><br>
+        </div>
+        <button style="" class="btn-lg btn-primary btn-block" value="Entrer" name="sub" type="submit">Sign in</button>
       </form>
     </div>
-    <?php include_once "footer.php" ?>
   </body>
 </html>

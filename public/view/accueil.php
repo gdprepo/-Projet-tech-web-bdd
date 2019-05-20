@@ -1,4 +1,4 @@
-<ul class="list-group">
+<ul class="list-group" style="margin-bottom:90px;">
     <li class="list-group-item list-group-item-info"><h3>Compétence</h3></li>
     <?php foreach ($data["skills"] as $skill): ?>
     <li class="list-group-item <?php echo "skill-row-" . $skill["id"] ?>">
@@ -9,14 +9,19 @@
                 </div>
                 <div class="col-md-2">
                     <?php echo $skill["level"]; ?>
+                    <div style="widht: 500%;" class="progress">
+                        <div aria-valuenow="<?php echo $skill["level"]; ?>" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill["level"]; ?>%">
+                            <span class="sr-only"><?php echo $skill["level"]; ?>% effectué (success)</span>
+                        </div>
+                    </div> 
                 </div>
                 <div class="col-md-2 admin-mode">
-                    <button class="btn btn-danger" type="button" value="Edit" onclick="toogleSkillForm(<?php echo  $skill["id"] ?>)">Edit</button>
+                    <button style="width:100%;" class="btn btn-danger" type="button" value="Edit" onclick="toogleSkillForm(<?php echo  $skill["id"] ?>)">Edit</button>
                 </div>
                 <div class="col-md-2 admin-mode">
                 <form action="/deleteSkill.php" method="post" class="form-inline">
                     <input type="hidden" name="id" value= <?php echo $skill["id"]?> />
-                    <button class="btn btn-danger" type="submit" value="Delete">Delete</button>
+                    <button style="width:100%;" class="btn btn-danger" type="submit" value="Delete">Delete</button>
                 </form>
                 </div>
             </div>
@@ -55,7 +60,7 @@
                         <input placeholder="niveau" type="text" name="level">
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                        <button style="width: 100%;margin-left:180px; margin-top:-5px;" class="btn btn-danger" type="submit" value="Ok">Ok</button>
                     </div>
                 </div>
             </div>
@@ -82,12 +87,12 @@
                     <p><?php echo $exp["organisme"]; ?></p>
                 </div>
                 <div class="col-md-2 admin-mode">
-                    <button class="btn btn-danger" type="button" value="Edit" onclick="toogleExpForm(<?php echo  $exp["id"] ?>)">Edit</button>
+                    <button style="width:100%;" class="btn btn-danger" type="button" value="Edit" onclick="toogleExpForm(<?php echo  $exp["id"] ?>)">Edit</button>
                 </div>
                 <div class="col-md-2 admin-mode">
                 <form action="/deleteExp.php" method="post" class="form-inline">
                     <input type="hidden" name="id" value= <?php echo $exp["id"]?> />
-                    <button class="btn btn-danger" type="submit" value="Delete">Delete</button>
+                    <button style="width:100%;" class="btn btn-danger" type="submit" value="Delete">Delete</button>
                 </form>
                 </div>
             </div>
@@ -113,7 +118,7 @@
                     <div class="col-md-2" >
                         <input placeholder="Date de fin" type="text" name="organisme" value="<?php echo $exp["organisme"]; ?>">
                     </div>
-                    <div class="col-md-2" style"margin-right:150px;">
+                    <div class="col-md-2" style="margin-right:150px;">
                         <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
                     </div>
                     <div class="col-md-2">
@@ -128,23 +133,23 @@
         <form action="/addExp.php" method="post" class="form-inline">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <input placeholder="Date de début" type="text" name="start_date">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <input placeholder="Date de fin" type="text" name="end_date">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <input placeholder="Titre" type="text" name="title">
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <input placeholder="Description" type="text" name="description">
                     </div>
-                    <div class="col-md-2">
+                    <div style="margin-top: 10px;" class="col-md-2">
                         <input placeholder="Organisme" type="text" name="organisme">
                     </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                    <div class="col-md-4">
+                        <button style="margin-top:60px; width:100%; margin-left: 50%;" class="btn btn-danger" type="submit" value="Ok">Ok</button>
                     </div>
                 </div>
             </div>
@@ -161,5 +166,3 @@
         $('.form-exp-row-' + id).toggle();
     }
 </script>
-
-
