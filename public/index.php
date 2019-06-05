@@ -20,7 +20,6 @@ $experience = $experienceRepository->fetchAll();
 $user["experience"] = $experience;
 $user["skills"] = $skills;
 
-session_start();
-$_SESSION["newsession"] = false;
+//session_start();
 
-loadStructure('./view/accueil.php', 'acceuil', $user);
+loadStructure('./view/accueil.php', 'Accueil - CV Gabin.D', $user);

@@ -23,7 +23,13 @@ class ParcourRepository {
             $stmt->bindParam(':description', $data["description"]);
             $stmt->bindParam(':start_date', $data["start_date"]);
             $stmt->bindParam(':end_date', $data["end_date"]);
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+            exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }
@@ -33,7 +39,13 @@ class ParcourRepository {
         try {
             $stmt = $this->dbh->prepare("DELETE FROM study WHERE id =  :id ");
             $stmt->bindParam(':id', $id);
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+            exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }
@@ -42,7 +54,13 @@ class ParcourRepository {
     public function update(array $data ) {
         try {
             $stmt = $this->dbh->prepare('UPDATE study SET name = " '.$_POST['name'].' ", description = " '.$_POST['description'].' ", start_date = " '.$_POST['start_date'].'", end_date = " '.$_POST['end_date'].' " WHERE id=" '.$_POST['id'].' "');
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+            exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }

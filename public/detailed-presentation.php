@@ -27,6 +27,6 @@ $user["parcours"] = $parcour;
 $user["rubrique"] = $rubrique;
 
 
-loadStructure('./view/presentation.php', 'presentation', $user);
+loadStructure('./view/presentation.php', 'Presentation | CV Gabin.D', $user);
 
 ?>

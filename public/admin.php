@@ -19,19 +19,27 @@ $index=false;
 $errorMsg = "";
 $validUser = $_SESSION["login"] === false;
 if(isset($_POST["sub"])) {
-  $validUser = $_POST["username"] == "admin" && $_POST["password"] == $user["password"];
+  $validUser = $_POST["username"] == "admin" && $_POST["password"] == "170Gabinroot";
   if(!$validUser) {
     $errorMsg = "Invalid username or password.";
+    $_SESSION["admin"]=false;
+    $_SESSION["newsession"]=false;
   } else {
     $validUser = true;
     $index=true;
+    $_SESSION["admin"]=true;
+    $_SESSION["newsession"]=true;
   }
 }
 if($validUser) {
    header("Location: /index.php"); die();
+   $_SESSION["admin"]=false;
+   $_SESSION["newsession"]=false;
+} else {
+  $_SESSION["admin"]=false;
+  $_SESSION["newsession"]=false;
 }
 
-$_SESSION["admin"]=true;
 
 ?>
 

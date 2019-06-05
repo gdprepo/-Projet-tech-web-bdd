@@ -1,5 +1,21 @@
+<?php
+include_once './../src/setup.php';
+include_once './layout/structure.php';
+
+try {
+        $dbh = new PDO('mysql:host=gdcvonliphgdbdd.mysql.db;dbname=gdcvonliphgdbdd', 'gdcvonliphgdbdd', 'Gabin170');
+} catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage() . "<br/>";
+        die();
+}
+
+$userRepository = new \User\UserRepository($dbh);
+$user = $userRepository->fetch();
+?>
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/index.php">Gabin Depaire</a>
+  <a class="navbar-brand" href="/index.php"><?php echo $user["firstname"]; echo $user["lastname"];?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -31,6 +47,17 @@
           <a class="nav-link" href="/admin.php">Admin Login</a>
         </li>';
       } else if ($webOS){
+
+      }
+
+      session_start();
+      if ($_SESSION["admin"] === true ||  $_SESSION["newsession"]===true) {
+        echo '
+        <li class="nav-item active">
+          <a style="color:#FF0000" class="nav-link" href="/exitAdmin.php">Exit Admin</a>
+        </li>';
+        
+      } else {
 
       }
         ?>

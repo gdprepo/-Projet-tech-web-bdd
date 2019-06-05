@@ -13,18 +13,19 @@ function loadStructure($page, $title, $data) {
 
         <?php
           session_start();
-          if ($_SESSION["admin"] === true) {
+          if ($_SESSION["admin"] === true ||  $_SESSION["newsession"]===true) {
             echo '
             <div>
-              <button style="" id="demo" onclick="toggleAdmin()" type="button" class="btn btn-admin btn-lg btn-primary btn-block">Admin MODE</button>
+              <button id="demo" onclick="toggleAdmin()" type="button" class="btn btn-admin btn-lg btn-primary btn-block">Admin MODE</button>
             </div>';
+            
           } else {
 
           }
         ?>
         <div class="container-fluid main-container">
           <div class="row">
-            <div class="col-md-3" style="margin-bottom:90px;">
+            <div class="col-md-3" style="margin-bottom:30px;">
               <div class="card">
                 <img src="<?php echo $data["picture_url"] ?>" class="card-img-top" alt="Picture of me">
                 <div class="card-body">
@@ -36,11 +37,11 @@ function loadStructure($page, $title, $data) {
                   <div class="admin-mode" style="display:none;">
                     <form action="/editUser.php" method="post">
                       <div>
-                        <label>Prenom</label>
+                        <label>Nom</label>
                         <input type="text" name="lastname" style="margin-left:10%; margin-right:auto;">
                         </div>
                       <div>
-                        <label>Nom</label>
+                        <label>Prenom</label>
                         <input type="text" name="firstname" style="margin-left:18%; margin-right:auto;">
                       </div>
                       <div>
@@ -48,7 +49,23 @@ function loadStructure($page, $title, $data) {
                         <input type="text" name="picture_url" style="margin-left:14%; margin-right:auto;">
                       </div>
                       <div>
-                        <button style="margin-left:30%; margin-top:20px;margin-right:auto;" class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                        <button style= <?php 
+                        $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+                        $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+                        $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+                        $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+                        $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
+
+                        if ($iPod || $iPhone || $iPad || $Android) {
+                            echo '
+                            "width:100%; margin-left:-0px;"
+                            ';
+                        } else {
+                            echo '
+                            "margin-left:-0px; margin-top:50px;width: 100%"';
+                        }                    
+                    ?>                        
+                         class="btn btn-danger" type="submit" value="Ok">Ok</button>
                       </div>
                     </form>
 

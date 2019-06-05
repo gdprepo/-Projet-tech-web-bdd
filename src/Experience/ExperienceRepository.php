@@ -24,7 +24,13 @@ class ExperienceRepository {
             $stmt->bindParam(':title', $data["title"]);
             $stmt->bindParam(':description', $data["description"]);
             $stmt->bindParam(':organisme', $data["organisme"]);
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+            exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }
@@ -34,7 +40,13 @@ class ExperienceRepository {
         try {
             $stmt = $this->dbh->prepare("DELETE FROM professionnal WHERE id =  :id ");
             $stmt->bindParam(':id', $id);
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+            exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }
@@ -43,7 +55,13 @@ class ExperienceRepository {
     public function update(array $data ) {
         try {
             $stmt = $this->dbh->prepare('UPDATE professionnal SET start_date = " '.$_POST['start_date'].' ", end_date = " '.$_POST['end_date'].' ", title = " '.$_POST['title'].'", description = " '.$_POST['description'].' ", organisme = " '.$_POST['organisme'].' " WHERE id=" '.$_POST['id'].' "');
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+            exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }

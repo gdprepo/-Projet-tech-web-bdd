@@ -1,4 +1,4 @@
-<ul class="list-group" style="margin-bottom:90px;">
+<ul class="list-group" style="margin-bottom:30px;">
     <li class="list-group-item list-group-item-info"><h3>Compétence</h3></li>
     <?php foreach ($data["skills"] as $skill): ?>
     <li class="list-group-item <?php echo "skill-row-" . $skill["id"] ?>">
@@ -9,19 +9,52 @@
                 </div>
                 <div class="col-md-2">
                     <?php echo $skill["level"]; ?>
-                    <div style="widht: 500%;" class="progress">
+                    <div style= <?php 
+                        $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+                        $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+                        $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+                        $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+                        $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
+
+                        if ($iPod || $iPhone || $iPad || $Android) {
+                            echo '
+                            "width:100%;"
+                            ';
+                        } else {
+                            echo '
+                            "width:400%;"';
+                        }                    
+                    ?>
+                     class="progress">
                         <div aria-valuenow="<?php echo $skill["level"]; ?>" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill["level"]; ?>%">
                             <span class="sr-only"><?php echo $skill["level"]; ?>% effectué (success)</span>
                         </div>
                     </div> 
                 </div>
                 <div class="col-md-2 admin-mode">
-                    <button style="width:100%;" class="btn btn-danger" type="button" value="Edit" onclick="toogleSkillForm(<?php echo  $skill["id"] ?>)">Edit</button>
+                    <button style=<?php 
+                        $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+                        $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+                        $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+                        $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+                        $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
+
+                        if ($iPod || $iPhone || $iPad || $Android) {
+                            echo '
+                            "width:85%; margin-top:50px; margin-bottom : -30px"
+                            ';
+                        } else {
+                            echo '
+                            "margin-top:50px ;width:100%;"';
+                        }                    
+                    ?>
+                    
+                     class="btn btn-danger" type="button" value="Edit" onclick="toogleSkillForm(<?php echo  $skill['id'] ?>)">Edit</button>
                 </div>
                 <div class="col-md-2 admin-mode">
                 <form action="/deleteSkill.php" method="post" class="form-inline">
                     <input type="hidden" name="id" value= <?php echo $skill["id"]?> />
-                    <button style="width:100%;" class="btn btn-danger" type="submit" value="Delete">Delete</button>
+                    <button style="margin-top: 50px; width:100%;" class="btn btn-danger" type="submit" value="Delete">Delete</button>
                 </form>
                 </div>
             </div>
@@ -60,14 +93,30 @@
                         <input placeholder="niveau" type="text" name="level">
                     </div>
                     <div class="col-md-2">
-                        <button style="width: 100%;margin-left:180px; margin-top:-5px;" class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                        <button style=<?php 
+                        $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+                        $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+                        $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+                        $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+                        $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
+
+                        if ($iPod || $iPhone || $iPad || $Android) {
+                            echo '
+                            "width:85%; margin: 20px;"
+                            ';
+                        } else {
+                            echo '
+                            "width: 100%;margin-left:180px; margin-top:-5px;"';
+                        }                    
+                    ?>                        
+                         class="btn btn-danger" type="submit" value="Ok">Ok</button>
                     </div>
                 </div>
             </div>
         </form>
     </li>
 </ul>
-<ul class="list-group" style="margin-top:50px;">
+<ul class="list-group" style="">
     <li class="list-group-item list-group-item-info"><h3>Experiences Profesionnelles</h3></li>
     <?php foreach ($data["experience"] as $exp): ?>
     <li class="list-group-item <?php echo "exp-row-" . $exp["id"] ?>">
@@ -87,7 +136,24 @@
                     <p><?php echo $exp["organisme"]; ?></p>
                 </div>
                 <div class="col-md-2 admin-mode">
-                    <button style="width:100%;" class="btn btn-danger" type="button" value="Edit" onclick="toogleExpForm(<?php echo  $exp["id"] ?>)">Edit</button>
+                    <button style=<?php 
+                        $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+                        $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+                        $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+                        $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+                        $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
+
+                        if ($iPod || $iPhone || $iPad || $Android) {
+                            echo '
+                            "width:85%; margin-bottom: -10px;"
+                            ';
+                        } else {
+                            echo '
+                            "width:100%;"';
+                        }                    
+                    ?>
+                    
+                     class="btn btn-danger" type="button" value="Edit" onclick="toogleExpForm(<?php echo  $exp['id'] ?>)">Edit</button>
                 </div>
                 <div class="col-md-2 admin-mode">
                 <form action="/deleteExp.php" method="post" class="form-inline">
@@ -139,17 +205,33 @@
                     <div class="col-md-3">
                         <input placeholder="Date de fin" type="text" name="end_date">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <input placeholder="Titre" type="text" name="title">
                     </div>
-                    <div class="col-md-3">
+                    <div style="margin-top: 10px;" class="col-md-3">
                         <input placeholder="Description" type="text" name="description">
                     </div>
                     <div style="margin-top: 10px;" class="col-md-2">
                         <input placeholder="Organisme" type="text" name="organisme">
                     </div>
                     <div class="col-md-4">
-                        <button style="margin-top:60px; width:100%; margin-left: 50%;" class="btn btn-danger" type="submit" value="Ok">Ok</button>
+                        <button style=<?php 
+                        $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+                        $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+                        $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+                        $Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+                        $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
+
+                        if ($iPod || $iPhone || $iPad || $Android) {
+                            echo '
+                            "width:85%; margin: 20px;"
+                            ';
+                        } else {
+                            echo '
+                            "margin-top:-20px; width:50%; margin-left: 130%;"';
+                        }                    
+                    ?>
+                         class="btn btn-danger" type="submit" value="Ok">Ok</button>
                     </div>
                 </div>
             </div>

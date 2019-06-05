@@ -10,14 +10,13 @@ try {
 $data = [
     "level" => $_POST["level"] ? intval($_POST["level"], 10) : null,
     "text" => $_POST["text"] ?: null,
-    "id" => $_POST["id"] ?: null,
 ];
 
 $skillRepository = new \Skill\SkillRepository($dbh);
 
 
-if (null !== $data["level"] &&  null !== $data["text"] &&  null !== $data["id"]) {
-    $skillRepository->insert($data, $id);
+if (null !== $data["level"] &&  null !== $data["text"]) {
+    $skillRepository->insert($data);
 }
 
 

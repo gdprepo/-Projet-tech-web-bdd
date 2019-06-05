@@ -21,7 +21,13 @@ class SkillRepository {
             $stmt = $this->dbh->prepare("INSERT INTO skills (text, level) VALUES (:text, :level)");
             $stmt->bindParam(':text', $data["text"]);
             $stmt->bindParam(':level', $data["level"]);
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+                exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }
@@ -31,7 +37,13 @@ class SkillRepository {
         try {
             $stmt = $this->dbh->prepare("DELETE FROM skills WHERE id =  :id ");
             $stmt->bindParam(':id', $id);
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+            exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }
@@ -40,7 +52,13 @@ class SkillRepository {
     public function update(array $data) {
         try {
             $stmt = $this->dbh->prepare('UPDATE skills SET text = " '.$_POST['text'].' ", level = " '.$_POST['level'].' " WHERE id=" '.$_POST['id'].' "');
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+            exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }

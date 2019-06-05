@@ -21,7 +21,13 @@ class RubriqueRepository {
             $stmt = $this->dbh->prepare("INSERT INTO free_space (activite, text) VALUES (:activite, :text)");
             $stmt->bindParam(':activite', $data["activite"]);
             $stmt->bindParam(':text', $data["text"]);
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+            exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }
@@ -30,7 +36,13 @@ class RubriqueRepository {
     public function update(array $data) {
         try {
             $stmt = $this->dbh->prepare('UPDATE free_space SET activite = " '.$_POST['activite'].' ", text = " '.$_POST['text'].' " WHERE id=" '.$_POST['id'].' "');
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+            exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }
@@ -40,7 +52,13 @@ class RubriqueRepository {
         try {
             $stmt = $this->dbh->prepare("DELETE FROM free_space WHERE id =  :id ");
             $stmt->bindParam(':id', $id);
-            var_dump($stmt->execute());
+            $stmt->execute();
+            if ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/detailed-presentation.php") {
+                header('Location: detailed-presentation.php'); 
+            } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/index.php"){
+                header('Location: index.php'); 
+            }
+            exit;
         } catch (\Exception $e) {
             var_dump($e); exit;
         }

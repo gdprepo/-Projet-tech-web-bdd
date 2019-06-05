@@ -5,7 +5,7 @@
             <h5 class="card-header"><?php echo $projet["id"];?> - <?php echo $projet["title"]; ?></h5>
             <div class="card-body">
                 <a href="<?php echo $projet["lien"]; ?>">
-                    <img class="img-fluid" src="<?php echo $projet["picture"] ?>" style="max-heigth: 100px;margin-left:1%;margin-right:auto;"><img>
+                    <img class="img-fluid" alt="<?php echo $projet["title"]; ?>" src="<?php echo $projet["picture"] ?>" style="max-heigth: 100px;margin-left:1%;margin-right:auto;"><img>
                 </a>
                 <p class="card-text" style="text-align:left; margin-top:10px;"><?php echo $projet["logiciel"]; ?></p>
                 <a href="<?php echo $projet["lien"]; ?>" class="btn btn-primary" style="width:180px; margin-right:5%; margin-left:auto; margin-top:15px;">Lien Github</a>

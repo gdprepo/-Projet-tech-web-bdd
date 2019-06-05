@@ -1,9 +1,9 @@
-DB_USER = gabindepaire
-DB_PASSWORD = rootroot
+DB_USER = root
+DB_PASSWORD = root
 DB_NAME = gdbdd
 
 #Starting webServer
-start: 
+start:
 	php -S localhost:8000 -t public/
 
 db.create:
@@ -18,4 +18,3 @@ db.reset: db.destroy db.create
 # Show this help.
 help:
 	@awk '/^#/{c=substr($$0,3);next}c&&/^[[:alpha:]][[:alnum:]_-]+:/{print substr($$1,1,index($$1,":")),c}1{c=0}' $(MAKEFILE_LIST) | column -s: -t
-

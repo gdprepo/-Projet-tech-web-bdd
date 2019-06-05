@@ -17,4 +17,4 @@ $user["contact"] = [
   "message" => "Message :",
 ];
 
-loadStructure('view/contact.php', 'Contact', $user);
+loadStructure('view/contact.php', 'Contact | CV Gabin.D', $user);

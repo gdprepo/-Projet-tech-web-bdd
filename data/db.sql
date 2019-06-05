@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS user (
 )  ENGINE=INNODB;
 
 INSERT INTO user (firstname, lastname, picture_url, password)
-VALUES ('gabin', 'depaire', 'http://art21.fr/wp-content/uploads/2015/09/photo-histoire-einstein-tire-langue.jpg', 'pdwadmin');
+VALUES ('gabin', 'depaire', 'http://art21.fr/wp-content/uploads/2015/09/photo-histoire-einstein-tire-langue.jpg', '1234');
 
 CREATE TABLE IF NOT EXISTS projet (
     id INT AUTO_INCREMENT,
@@ -125,3 +125,10 @@ INSERT INTO realisation (title, picture, logiciel, lien)
 VALUES ('Projet python site statique', 'https://fortimelp.fr/296/formation-python-les-fondamentaux-3-jours.jpg',  'Python','https://github.com/');
 INSERT INTO realisation (title, picture, logiciel, lien)
 VALUES ('Projet WEB', 'http://anyssehalifa.fr/img/portfolio/EAP_responsive2.jpg',  'HTML / CSS / JAVA','https://github.com/');
+
+
+
+
+
+
+

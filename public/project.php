@@ -17,7 +17,7 @@ $user = $userRepository->fetch();
 $user["projet"] = $projet;
 
 
-loadStructure('./view/project.php', 'projets', $user);
+loadStructure('./view/project.php', 'Portfolio | CV Gabin.D', $user);
 
 
 ?>
