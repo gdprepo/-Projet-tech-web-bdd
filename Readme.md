@@ -27,4 +27,4 @@ Et la quatrième page : est une page de contact permettant aux visiteurs de vous
 
 ## 2 - Partie administrateur
 
-A partir de la page * admin.php * vous pouvez entrer un login et un password pour avoir accès à la partie admin du site. En cliquant sur le bouton * admin * vous pouvez modifier les elements du cv sur chaque page à partir de requete SQL.
+A partir de la page ` admin.php ` vous pouvez entrer un login et un password pour avoir accès à la partie admin du site. En cliquant sur le bouton ` admin ` vous pouvez modifier les elements du cv sur chaque page à partir de requete SQL.
