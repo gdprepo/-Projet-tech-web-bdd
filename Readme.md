@@ -4,7 +4,7 @@ This is a readme.
 
 ## 1 - Partie utilisateur
 
-Vous pouvez utiliser 
+Vous pouvez utiliser :
         - la commande `make start` pour lancer le serveur php en localhost
 
         - la commande `make db.create` pour créer et importer la bdd du fichier /data/db.sql dans mysql
@@ -13,7 +13,7 @@ Vous pouvez utiliser
         
         - ou encore la commande `make db.reset` qui destroy et create la bdd
         
-* La connexion PDO sur chaque page php du site est un exemple vous pouvez la modifier pour vous connecter en localhost  *
+` La connexion PDO sur chaque page php du site est un exemple vous pouvez la modifier pour vous connecter en localhost  `
 
 Sur la premiere page : vous retrouverez une presentation simple d'un CV qui regroupe nom, prénom, photo et compétences clefs
 
