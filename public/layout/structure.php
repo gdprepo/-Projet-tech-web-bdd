@@ -1,4 +1,7 @@
 <?php
+session_start();
+$admin = $_SESSION["admin"] ?? false;
+$newsession = $_SESSION["newsession"] ?? false;
 
 function loadStructure($page, $title, $data) {
     ?>
@@ -12,8 +15,8 @@ function loadStructure($page, $title, $data) {
         <?php include_once "header.php"?>
 
         <?php
-          session_start();
-          if ($_SESSION["admin"] === true ||  $_SESSION["newsession"]===true) {
+          
+          if ($admin ||  $newsession) {
             $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
             $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
             $iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");

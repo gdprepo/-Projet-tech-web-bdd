@@ -2,10 +2,14 @@
 include_once './../src/setup.php';
 include_once './layout/structure.php';
 
+$dsn = 'mysql:dbname=gdbdd;host=127.0.0.1';
+$user = 'projet-dev';
+$password = 'dev';
+
 try {
-        $dbh = new PDO('mysql:host=nombdd.mysql.db;dbname=nombdd', 'userserveur', 'pwdbdd');
+        $dbh = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
-        print "Erreur !: " . $e->getMessage() . "<br/>";
+        print "Erreur OO !: " . $e->getMessage() . "<br/>";
         die();
 }
 

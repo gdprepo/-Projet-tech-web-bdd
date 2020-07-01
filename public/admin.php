@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-
 <?php
+
+ob_start();
 include_once './../src/setup.php';
 include_once './layout/structure.php';
 
+$dsn = 'mysql:dbname=gdbdd;host=127.0.0.1';
+$user = 'projet-dev';
+$password = 'dev';
+
 try {
-  $dbh = new PDO('mysql:host=nombdd.mysql.db;dbname=nombdd', 'userserveur', 'pwdbdd');
+  $dbh = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";
         die();
@@ -14,10 +18,10 @@ try {
 $userRepository = new \User\UserRepository($dbh);
 $user = $userRepository->fetch();
 
-session_start();
 $index=false;
 $errorMsg = "";
-$validUser = $_SESSION["login"] === false;
+$_SESSION["login"] = false;
+$validUser = $_SESSION["login"];
 if(isset($_POST["sub"])) {
   $validUser = $_POST["username"] == "admin" && $_POST["password"] == "MOTDEPASSE";
   if(!$validUser) {
@@ -32,16 +36,17 @@ if(isset($_POST["sub"])) {
   }
 }
 if($validUser) {
-   header("Location: /index.php"); die();
-   $_SESSION["admin"]=false;
-   $_SESSION["newsession"]=false;
+    $_SESSION["admin"]=true;
+    $_SESSION["newsession"]=false;
+    header("Location: /index.php"); die();
 } else {
   $_SESSION["admin"]=false;
   $_SESSION["newsession"]=false;
 }
-
+ob_end_flush();
 
 ?>
+<!DOCTYPE html>
 
 <html>
   <head>
@@ -84,7 +89,7 @@ if($validUser) {
         <label>
           <a href="./index.php">Retour a l'Accueil</a>
         </label>
-        <input name="username" type="text" id="username" class="form-control" placeholder="Username" value="<?= $_POST["username"] ?>" required="" autofocus="">
+        <input name="username" type="text" id="username" class="form-control" placeholder="Username" required="" autofocus="">
         <input style="" name="password" type="password" id="password" class="form-control" placeholder="Password" required="">
         <div class="error"><?= $errorMsg ?></div>
         <div class="checkbox mb-3">

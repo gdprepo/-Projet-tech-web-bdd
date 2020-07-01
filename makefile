@@ -1,5 +1,5 @@
-DB_USER = root
-DB_PASSWORD = root
+DB_USER = projet-dev
+DB_PASSWORD = dev
 DB_NAME = gdbdd
 
 #Starting webServer

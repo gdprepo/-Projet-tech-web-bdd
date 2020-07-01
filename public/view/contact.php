@@ -1,3 +1,8 @@
+<?php 
+  $check = $_SESSION["check"] ?? 0;
+
+?>
+
 <div class="content animated bounceInRight">
     <div>
       <form style="margin:10%;" action="/mail.php" method="post">
@@ -15,20 +20,20 @@
               <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
           <?php
-            if ($_SESSION["check"] == 1) {
+            if ($check == 1) {
               echo '
               <div id="welcomeDiv" style="display:block; padding: 5px" class="bg-primary text-white">Votre message a bien été envoyé - Rafraichir la page pour envoyer un autre message</div>
               ';
               sleep(5);
-              $_SESSION["check"] = 0;
+              $check = 0;
               header("Location: contact.php");
               exit;
-            } elseif ($_SESSION["check"] == 2) {
+            } elseif ($check == 2) {
               echo '
                 <div style="padding: 5px" class="bg-danger text-white">Erreur - Invalide saisie remplir le formulaire correctement !</div>
               ';
               sleep(5);
-              $_SESSION["check"] = 0;
+              $check = 0;
               header("Location: contact.php");
             } else {
             }

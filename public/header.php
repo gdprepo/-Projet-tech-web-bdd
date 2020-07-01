@@ -1,12 +1,16 @@
 <?php
-session_start();
+
 include_once './../src/setup.php';
 include_once './layout/structure.php';
 
+$dsn = 'mysql:dbname=gdbdd;host=127.0.0.1';
+$user = 'projet-dev';
+$password = 'dev';
+
 try {
-  $dbh = new PDO('mysql:host=nombdd.mysql.db;dbname=nombdd', 'userserveur', 'pwdbdd');
+  $dbh = new PDO($dsn, $user, $password);
 } catch (PDOException $e) {
-        print "Erreur !: " . $e->getMessage() . "<br/>";
+        print "Erreur OO !: " . $e->getMessage() . "<br/>";
         die();
 }
 
@@ -25,6 +29,11 @@ if ($theme)
 
 $userRepository = new \User\UserRepository($dbh);
 $user = $userRepository->fetch();
+
+
+
+$admin = $_SESSION["admin"] ?? false;
+$newsession = $_SESSION["newsession"] ?? false;
 ?>
 
 
@@ -65,8 +74,7 @@ $user = $userRepository->fetch();
 
         }
 
-        session_start();
-        if ($_SESSION["admin"] === true ||  $_SESSION["newsession"]===true) {
+        if ($admin ||  $newsession) {
           echo '
           <li class="nav-item active animated jackInTheBox">
             <a style="color:#FF0000" class="nav-link" href="/exitAdmin.php">Exit Admin</a>
