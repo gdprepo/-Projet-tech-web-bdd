@@ -12,5 +12,7 @@
         } elseif ($_SERVER["HTTP_REFERER"] === "https://www.gd-cvonline.fr/project.php"){
                 header('Location: project.php'); 
         }
+        header('Location: /index.php');
+
         exit;
 ?>
