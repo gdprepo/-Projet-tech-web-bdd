@@ -18,5 +18,7 @@ $data = [
 ];
 
 if ($data["id"] !== null) {
+    header("Location: detailed-presentation.php");
     $parcourRepository->delete($data["id"]);
+    die();
 }

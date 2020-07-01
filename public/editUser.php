@@ -22,7 +22,9 @@ $userRepository = new \User\UserRepository($dbh);
 
 
 if (null !== $data["lastname"] &&  null !== $data["firstname"] &&  null !== $data["picture_url"]) {
+    header('Location: /index.php');
     $userRepository->update($data);
+    die();
 }
 
 

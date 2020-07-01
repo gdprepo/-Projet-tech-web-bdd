@@ -24,7 +24,9 @@ $expRepository = new \Experience\ExperienceRepository($dbh);
 
 
 if (null !== $data["start_date"] &&  null !== $data["end_date"] &&  null !== $data["title"] &&  null !== $data["description"] &&  null !== $data["organisme"]) {
+    header("Location: index.php");
     $expRepository->update($data);
+    die();
 }
 
 

@@ -21,7 +21,9 @@ $skillRepository = new \Rubrique\RubriqueRepository($dbh);
 
 
 if (null !== $data["activite"] &&  null !== $data["text"]) {
+    header("Location: detailed-presentation.php");
     $skillRepository->insert($data);
+    die();
 }
 
 

@@ -18,5 +18,7 @@ $data = [
 ];
 
 if ($data["id"] !== null) {
+    header("Location: detailed-presentation.php");
     $skillRepository->delete($data["id"]);
+    die();
 }

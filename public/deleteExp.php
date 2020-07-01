@@ -18,5 +18,7 @@ $data = [
 ];
 
 if ($data["id"] !== null) {
+    header("Location: index.php");
     $experienceRepository->delete($data["id"]);
+    die();
 }

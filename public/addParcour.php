@@ -23,7 +23,9 @@ $parcourRepository = new \Parcour\ParcourRepository($dbh);
 
 
 if (null !== $data["name"] &&  null !== $data["description"] &&  null !== $data["start_date"] &&  null !== $data["end_date"]) {
+    header("Location: detailed-presentation.php");
     $parcourRepository->insert($data);
+    die();
 }
 
 

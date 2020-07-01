@@ -23,7 +23,9 @@ $projetRepository = new \Projet\ProjetRepository($dbh);
 
 
 if (null !== $data["title"] &&  null !== $data["picture"] &&  null !== $data["logiciel"] &&  null !== $data["lien"]) {
+    header("Location: project.php");
     $projetRepository->update($data);
+    die();
 }
 
 
