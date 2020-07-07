@@ -1,4 +1,4 @@
-<div class="animated slideInRight">
+<div style="z-index:0; position: relative" class="animated slideInRight">
     <ul class="list-group" style="margin-bottom:30px;">
         <li class="list-group-item list-group-item-info"><h3>Compétence</h3></li>
         <?php foreach ($data["skills"] as $skill): ?>

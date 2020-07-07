@@ -37,7 +37,7 @@ $newsession = $_SESSION["newsession"] ?? false;
 ?>
 
 
-<div class="animated slideInDown text-white">
+<div style="z-index: 2; position: relative" class="animated slideInDown text-white">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/index.php"><?php echo $user["firstname"]; echo $user["lastname"];?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,6 +90,7 @@ $newsession = $_SESSION["newsession"] ?? false;
               <a class="dropdown-item" href="?theme=2">Theme 2</a>
               <a class="dropdown-item" href="?theme=3">Theme 3</a>
               <a class="dropdown-item" href="?theme=0">Sans Theme</a>
+              </div>
             </li>
         
           ';
@@ -97,11 +98,13 @@ $newsession = $_SESSION["newsession"] ?? false;
             echo '
               <li class="nav-item dropdown ml-auto">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Themes </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <div style="z-index: 100" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="?theme=1">Theme 1</a>
                 <a class="dropdown-item" href="?theme=2">Theme 2</a>
                 <a class="dropdown-item" href="?theme=3">Theme 3</a>
                 <a class="dropdown-item" href="?theme=0">Sans Theme</a>
+                </div>
+
               </li>
           
             ';

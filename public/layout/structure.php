@@ -115,7 +115,7 @@ function loadStructure($page, $title, $data) {
                 </div>
               </div>
             </div>
-            <div style="z-index:-1; position: relative" class="col-md-8">
+            <div class="col-md-8">
               <?php require_once $page ?>
             </div>
           </div>
