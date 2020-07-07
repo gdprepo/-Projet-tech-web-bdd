@@ -45,7 +45,7 @@ $newsession = $_SESSION["newsession"] ?? false;
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav w-100">
         <li class="nav-item active">
           <a class="nav-link" href="/index.php">Accueil<span class="sr-only">(current)</span></a>
         </li>
@@ -81,18 +81,34 @@ $newsession = $_SESSION["newsession"] ?? false;
           </li>';
           
         } else {
-          echo '
-            <div class="dropdown" style="margin-left: 1190px;">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Themes</a> <!-- lien -->
-              <div class="dropdown-menu">
+          if ($iPod || $iPhone || $iPad || $Android) {
+            echo '
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Themes </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="?theme=1">Theme 1</a>
+              <a class="dropdown-item" href="?theme=2">Theme 2</a>
+              <a class="dropdown-item" href="?theme=3">Theme 3</a>
+              <a class="dropdown-item" href="?theme=0">Sans Theme</a>
+            </li>
+        
+          ';
+          } else {
+            echo '
+              <li class="nav-item dropdown ml-auto">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Themes </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="?theme=1">Theme 1</a>
                 <a class="dropdown-item" href="?theme=2">Theme 2</a>
                 <a class="dropdown-item" href="?theme=3">Theme 3</a>
                 <a class="dropdown-item" href="?theme=0">Sans Theme</a>
-              </div>
-            </div>
+              </li>
           
-          ';
+            ';
+
+
+          }
+
         }
         
           ?>

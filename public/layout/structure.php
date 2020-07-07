@@ -10,6 +10,8 @@ function loadStructure($page, $title, $data) {
       <head>
         <title><?php echo $title; ?></title>
         <?php include_once "include-headers.html"?>
+
+        <script src="stickybits.min.js"></script>
       </head>
       <body>
         <?php include_once "header.php"?>
@@ -63,8 +65,8 @@ function loadStructure($page, $title, $data) {
                           }
           ?>
           ">
-            <div class="col-md-3" style="margin-bottom:30px;">
-              <div id="" class="animated slideInLeft ">
+            <div class="col-md-3">
+              <div style="position: sticky;" class="animated slideInLeft info">
                 <div class="card">
                   <img src="<?php echo $data["picture_url"] ?>" class="card-img-top" alt="Picture of me">
                   <div class="card-body">
@@ -113,7 +115,7 @@ function loadStructure($page, $title, $data) {
                 </div>
               </div>
             </div>
-            <div class="col-md-8">
+            <div style="z-index:-1; position: relative" class="col-md-8">
               <?php require_once $page ?>
             </div>
           </div>
@@ -163,8 +165,28 @@ function loadStructure($page, $title, $data) {
           function toggleAdmin() {
             $('.admin-mode').toggle();
           }
+
+
+          // window.addEventListener('scroll', function() {
+          //     const scrolled = window.scrollY;
+          //     const div = document.getElementById(info);
+
+          //     console.log(scrolled);
+
+          //     if (scrolled >= 79) {
+          //         info.style.position = "absolute";
+          //         info.style.width = "100%";
+                  
+          //     } else 
+          //      {
+          //       info.style.bottom = "";
+
+          //      }
+          // })
         </script>
         <script src="script.js"></script>
+        <script src="main.js"></script>
+
       </body>
     </html>
     <?php
