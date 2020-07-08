@@ -27,7 +27,7 @@
                             }                    
                         ?>
                         class="progress">
-                            <div aria-valuenow="<?php echo $skill["level"]; ?>" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $skill["level"]; ?>%">
+                            <div aria-valuenow="<?php echo $skill["level"]; ?>" per="<?php echo $skill["level"]; ?>" class="skill-per progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" >
                                 <span class="sr-only"><?php echo $skill["level"]; ?>% effectué (success)</span>
                             </div>
                         </div> 
@@ -249,4 +249,18 @@
         $('.exp-row-' + id).toggle();
         $('.form-exp-row-' + id).toggle();
     }
+
+    $(".skill-per").each(function() {
+        var $this = $(this);
+        var per = $this.attr('per');
+        console.log(per);
+        $this.css("width", per+'%');
+        $({animatedValue: 0}).animate({animatedValue: per}, {
+            duration: 1000,
+            step: function() {
+                $this.attr('width', Math.floor(this.animatedValue));
+            }
+        });
+
+    })
 </script>
